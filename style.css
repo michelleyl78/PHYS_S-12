@@ -1,7 +1,8 @@
 body {
-    font: 20px Montserrat, sans-serif;
+	font-family: Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif; 
+    font-size: 20px;
     line-height: 1.8;
-    color: black;
+    color: black
   }
 
 p {font-size: 16px;}
@@ -13,42 +14,98 @@ p {font-size: 16px;}
 }
 .header {
   overflow: hidden;
-  background-color: #F6ECFF;
+  background-color:#dbc6eb;
   padding: 20px 10px;
 }
 
 /* Style the header links */
 .header a {
   float: left;
-  color: black;
+  color: white;
   text-align: center;
-  padding: 12px;
+  padding: 14px;
   text-decoration: none;
   font-size: 30px;
-  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-family: Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif; 
   line-height: 25px;
-  border-radius: 4px;
+  border-radius:4px;
+  margin-right:10px;
 }
 
 /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
 .header a.logo {
   font-size: 25px;
+  font-family: Trebuchet MS,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Tahoma,sans-serif; 
   font-weight: bold;
 }
 
 /* Change the background color on mouse-over */
 .header a:hover {
   background-color: #DCBDF7;
-  color: black;
+  color: white;
 }
 
 /* Style the active/current link*/
 .header a.active {
-  background-color: #D561E8;
-  color: black;
+  background-color:#6a197d;
+  color: white;
 }
 
 /* Float the link section to the right */
 .header-right {
   float: right;
+}
+.about {
+  text-align: center;
+	font-size: 25px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+
+}
+.btn {
+  flex: 1 1 auto;
+  margin: 10px;
+  padding: 30px;
+  text-align: center;
+  transition: 0.5s;
+  background-size:200% auto;
+  color: white;
+ /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 30px;
+ }
+
+/* Demo Stuff End -> */
+
+/* <- Magic Stuff Start */
+
+.btn:hover {
+  background-position: right center; /* change the direction of the change here */
+}
+
+.btn-1 {
+  background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+}
+
+.btn-2 {
+  background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+}
+
+.btn-3 {
+  background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+}
+
+.btn-4 {
+  background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+}
+
+.btn-5 {
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%);
 }
