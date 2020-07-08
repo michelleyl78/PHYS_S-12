@@ -8,6 +8,16 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <link href="../style.css" rel="stylesheet">
+
+
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
 </head>
 
 <div class="header">
@@ -22,6 +32,33 @@
   <h4> July 2, 2020 </h4>
   <hr>
   <h5> Assignment: Make and document either (a) a kinetic sculpture or (b) a quick prototype of a possible final project. This should integrate an electronic circuit with physical components. In addition to components in the kit, feel free to use materials you find around the house (cardboard, toothpicks, coat hangers, tape and glue, etc.).</h5>
+
+
+<pre><code class="language-arduino">
+void setup() {
+  pinMode(3, OUTPUT);
+  pinMode(A0, OUTPUT);  //This will be GND for the potentiometer
+  pinMode(A4, OUTPUT);  //This will be 3.3V for the pot.
+
+  digitalWrite(A0, LOW);
+  digitalWrite(A4, HIGH);
+
+}
+
+void loop() {
+  int pot_value = analogRead(A2);   //pot wiper is on A2
+  int motor_level = map(pot_value, 0, 1023, 255, 0); // map motor_level to pot_value so that zero corresponds to lowest speed.
+  analogWrite(3, motor_level);
+  delay(1);
+}
+</code></pre>
+
+
+
+
+
+
+
   <hr>
 	<p> So far, this week's assignment took me the longest out of all the ones we've done so far due to failed prototypes and other setbacks which will be explained later in this page. I chose to create a kinetic sculpture. I found some inspiration with <a href="https://www.youtube.com/watch?v=v3vfhRf_VUs">this video</a> where a guy built a dragon kinetic sculpture using Legos. I decided to try to create the dragon, Haku, from one of my favorite movies, Spirited Away. Here's the finished product! </p>
 <p>
