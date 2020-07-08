@@ -34,24 +34,7 @@
   <h5> Assignment: Make and document either (a) a kinetic sculpture or (b) a quick prototype of a possible final project. This should integrate an electronic circuit with physical components. In addition to components in the kit, feel free to use materials you find around the house (cardboard, toothpicks, coat hangers, tape and glue, etc.).</h5>
 
 
-<pre><code class="language-arduino">
-void setup() {
-  pinMode(3, OUTPUT);
-  pinMode(A0, OUTPUT);  //This will be GND for the potentiometer
-  pinMode(A4, OUTPUT);  //This will be 3.3V for the pot.
 
-  digitalWrite(A0, LOW);
-  digitalWrite(A4, HIGH);
-
-}
-
-void loop() {
-  int pot_value = analogRead(A2);   //pot wiper is on A2
-  int motor_level = map(pot_value, 0, 1023, 255, 0); // map motor_level to pot_value so that zero corresponds to lowest speed.
-  analogWrite(3, motor_level);
-  delay(1);
-}
-</code></pre>
 
 
 
@@ -86,7 +69,24 @@ void loop() {
 <p> However, even though my dowels were successfully moving up and down, I found that the camshaft would frequently shift left and right and lose contact with the followers. To fix this, I hot-glued two of the extra cams that I had created to the sides of the tissue box and put the dowel through them, hoping that this would keep it from shifting left and right. </p>
 <p> I followed the class tutorial on how to use the L9110 H Bridge Power Driver to drive a motor, using my Metro board as a power source. However, I wanted to make the motor speed variable, so during the next lab day, I learned how to control a motor with a potentiometer. By plugging the potentiometer into pins A0, A2, and A4 of the Metro board, I used the following code in Arduino (which I got from our class site <a href="https://nathanmelenbrink.github.io/intro-dig-fab/04_rap_prototyping/pot_motor.html">here</a>) to make the motor speed vary as the dial on the potentiometer was turned. </p>
 <p>
-	<img src="arduino.PNG" style="width:90%" alt="Arduino Code"> </p>
+	<pre><code class="language-arduino">
+void setup() {
+  pinMode(3, OUTPUT);
+  pinMode(A0, OUTPUT);  //This will be GND for the potentiometer
+  pinMode(A4, OUTPUT);  //This will be 3.3V for the pot.
+
+  digitalWrite(A0, LOW);
+  digitalWrite(A4, HIGH);
+
+}
+
+void loop() {
+  int pot_value = analogRead(A2);   //pot wiper is on A2
+  int motor_level = map(pot_value, 0, 1023, 255, 0); // map motor_level to pot_value so that zero corresponds to lowest speed.
+  analogWrite(3, motor_level);
+  delay(1);
+}
+</code></pre>
 <p> Lab day also helped me figure out how to attach a motor to the wooden dowel acting as the camshaft. I cut a piece of a plastic straw and put it around the dowel and motor shaft, using hot glue to stick them together. I couldn't find any zipties to secure the motor shaft further, so I instead used a twist tie. </p>
 <p>
 	<img src="motor.JPG" style="width:90%" alt="Motor"> </p>
