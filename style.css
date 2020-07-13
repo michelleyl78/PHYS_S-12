@@ -112,3 +112,9 @@ p {font-size: 16px;}
 .btn-5 {
   background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%);
 }
+.btn-6 {
+  background-image: linear-gradient(to right, #FF9FB2 0%, #FBDCE2 51%, #F6B6C3 100%);
+}
+.btn-7 {
+  background-image: linear-gradient(to right, #D8E1FF 0%, #69DDFF 51%, #B2F7EF 100%);
+}
