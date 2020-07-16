@@ -53,7 +53,7 @@ void loop() {
 </code></pre>  
   <p> Unlike Rob, I used stacks of post-it notes that were 1 mm thick as my spacers instead of cardboard. The magnet that I used was from a magnetic bookmark, so it probably was not as strong as the one that Rob used. With no magnet, the signal was about 518. With the magnet directly on top of the sensor, the signal was 872. Here is a table of the signal varying based on the magnet's distance from the Hall sensor. </p>
 <p><img src="hall_table.PNG" style="width:90%" alt="Hall Sensor Calibration Table"></p>
-<p> I don't know exactly why my signal counts decreased with distance instead of increasing like Rob's did, although my data suggests that the useful range of the sensor with my bookmark magnet is 1-4 mm. Here is a graph of the data: </p>
+<p> My signal counts decreased with distance instead of increasing like Rob's did, which I think is due to me using the opposite pole of my magnet compared to Rob. Also, unlike Rob, my data suggests that the useful range of the sensor with my bookmark magnet is 1-4 mm. Here is a graph of the data: </p>
 <p><img src="hall_graph.PNG" style="width:90%" alt="Hall Sensor Calibration Graph"></p>
   <p> For the second part of today's assignment, I used copper tape to make a touch sensor that would translate into tones played by a buzzer. I was inspired by theremins, although my final product was not nearly as advanced as real theremins. Turn on sound to hear the theremin circuit in action!</p>
 <iframe style="width:90%; height:400px" src="circuit.mp4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -61,7 +61,7 @@ void loop() {
   <p><img src="theremin_circuit.jpg" style="width:90%" alt="Capacitive Sensor Circuit"></p>
   <p> The value from the capacitive sensor was printed to the Serial monitor, and I used the map function to map the range of the values picked up by the sensor to a range of tones that I wanted the buzzer to produce. In order to not have as much noise when I was not hovering my hand above the copper tape, I made the range of Serial values start from 100 to 4000, which would corespond to pitch values from 100 to 2000 Hz. Here's the code: </p>
   <pre><code class="language-arduino">
-#include <CapacitiveSensor.h>
+#include <CapacitiveSensor.h> 
 int buzzerPin = 8;
 CapacitiveSensor Sensor = CapacitiveSensor(7, 5); //7 is charge pin.  5 is sense pin.
 
