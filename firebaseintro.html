@@ -41,12 +41,12 @@
 	// Get a database reference to our blog
 	var ref = firebase.database().ref("/");
 	
-	object.onclick = function setAlarm(){
+	function setAlarm(){
 		var alarmTime = document.getElementById("alarmSet").value;
-		console.log("setting alarm")
-		alert("Alarm set.")
+		console.log("setting alarm");
+		alert("Alarm set.");
 		ref.update({
-			"ALARM_TIME": (alarmTime)
+			"ALARM_TIME": (alarmTime);
 		})
 	}
 		
