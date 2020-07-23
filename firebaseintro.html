@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<p> Input the military time in which you want to set an alarm. Must be in format "0:00". </p>
+	<p> Input the military time in which you want to set an alarm. Must be in format "00:00". </p>
 	<p>
 	<input type="text" id="alarmSet">
 	<button onclick="setAlarm()">Set Alarm</button> </p>
@@ -49,19 +49,6 @@
 			"ALARM_TIME": (alarmTime)
 		})
 	}
-
-	function turnOn(){
-		console.log("turning on");
-		ref.update({
-			"ALARM_STATUS": "ON"
-		});
-	}
-
-	function turnOff(){
-		console.log("turning off");
-		ref.update({
-			"ALARM_STATUS": "OFF"
-		});
 	}	
     </script>
 
