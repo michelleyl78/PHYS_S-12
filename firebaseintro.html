@@ -47,7 +47,7 @@
 	document.getElementById('turn-off').addEventListener('click', turnOff, false);
 	function setAlarm(){
 		console.log("setting alarm")
-		alert(alarmTime)
+		alert(alarmTime);
 		ref.update({
 			"ALARM_TIME": (alarmTime)
 		})
