@@ -1,0 +1,55 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>PHYSCI 70: Introduction to Digital Fabrication</title>
+</head>
+
+<body>
+	<p> Input the military time in which you want to set an alarm. Must be in format "00:00". </p>
+	<p>
+	<input type="text" id="alarmSet">
+	<button onclick="setAlarm()">Set Alarm</button> </p>
+
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+	<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.13.2/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDpjeKZjONYuFoPnr8XQ9TCx7UXyQqdNP0",
+    authDomain: "esp32-led-4ebe6.firebaseapp.com",
+    databaseURL: "https://esp32-led-4ebe6.firebaseio.com",
+    projectId: "esp32-led-4ebe6",
+    storageBucket: "esp32-led-4ebe6.appspot.com",
+    messagingSenderId: "700001120359",
+    appId: "1:700001120359:web:ca4dff070fb43b229164c2",
+    measurementId: "G-879RP4ZMK1"
+  };
+	
+	// Initialize Firebase
+	firebase.initializeApp(firebaseConfig);
+	 firebase.analytics();
+
+	// Get a database reference to our blog
+	var ref = firebase.database().ref("/");
+	
+	function setAlarm(){
+		var alarmTime = document.getElementById("alarmSet").value;
+		console.log("setting alarm")
+		alert("Alarm set.")
+		ref.update({
+			"ALARM_TIME": (alarmTime)
+		})
+	}
+	}	
+    </script>
+
+</body>
