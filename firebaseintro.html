@@ -40,7 +40,7 @@
 
 	// Get a database reference to our blog
 	var ref = firebase.database().ref("/");
-	var alarmTime = document.getElementbyId("alarmSet").value;
+	var alarmTime = document.getElementById("alarmSet").value;
 
 	// make the buttons call the function below 
 	document.getElementById('turn-on').addEventListener('click', turnOn, false);
