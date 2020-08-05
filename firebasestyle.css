@@ -1,0 +1,103 @@
+body {
+	font-family: openSans;
+    font-size: 25px;
+    line-height: 1.8;
+    color: black
+  }
+
+p {font-size: 25px;}
+
+.margin {margin-bottom: 15px;}
+
+@font-face{
+  font-family: memoryAlarm;
+  src: url('alarmfont.ttf') ;
+  font-stretch: expanded;
+}
+@font-face{
+  font-family: openSans;
+  src: url('opensans.ttf');
+
+}
+hr{
+  position: relative;
+  height: 2px;
+  background-color: #242322;
+  border: none;
+}
+.grid-container {
+
+  display: grid;
+  padding: 30px;
+  padding-bottom: 70px;
+  margin: 50px auto;
+  margin-left: 50px;
+  margin-right: 50px;
+  grid-template-columns: 50%;
+  grid-gap: 30px;
+  padding: 20px;
+}
+.one{
+  background-color: #CBF6F8;
+  grid-column: 1/2;
+  grid-row: 1/2;
+  text-align: center;
+  width:100%;
+  padding: 20px;
+  height: 300px;
+}
+.two{
+  background-color: #0CC078;
+  width: 100%;
+  text-align: center;
+  grid-column: 1/2;
+  grid-row: 2/3;
+  padding: 20px;
+  height: 300px;
+}
+.three{
+  background-color: #FB6962;
+  width: 100%;
+  text-align: center;
+  grid-column: 2/3;
+  grid-row: 1/2;
+  padding: 20px;
+  height: 300px;
+}
+.four{
+  background-color: #FCFC99;
+  width: 100%;
+  text-align: center;
+  grid-column: 2/3;
+  grid-row: 2/3;
+  padding: 20px;
+  height: 300px;
+}
+.header{
+  background-color: #C0C0C0;
+  padding: 30px;
+  text-align: center;
+  font-family: memoryAlarm;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+
+}
+.btn {
+  flex: 1 1 auto;
+  margin: 10px;
+  padding: 30px;
+  text-align: center;
+  transition: 0.5s;
+  background-size:200% auto;
+  color: white;
+ /* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  width: 100%;
+  font-size: 30px;
+ }
