@@ -46,7 +46,7 @@
 	var ref = firebase.database().ref("/");
 	
 	function setAlarm(){
-		var alarmTime = document.getElementById("alarmSet").value;
+		var alarmTime = document.getElementById('alarmSet').value;
 		console.log("setting alarm");
 		alert("Alarm set.");
 		ref.update({
@@ -55,8 +55,8 @@
 	}
 
 	function setRounds(){
-		var totalRounds = document.getElementById("rounds").value;
-		console.log("setting alarm");
+		var totalRounds = document.getElementById('rounds').value;
+		console.log("setting number of rounds");
 		alert("Total rounds changed.");
 		ref.update({
 			"rounds": (totalRounds)
