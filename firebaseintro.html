@@ -10,7 +10,11 @@
 	<p> Input the military time in which you want to set an alarm. Must be in format "00:00". </p>
 	<p>
 	<input type="text" id="alarmSet">
-	<button onclick="setAlarm()">Set Alarm</button> </p>
+	<button onclick="setAlarm()">Set alarm.</button> </p>
+
+	<p> Number of memory rounds: </p>
+	<p> <input type="number" id="rounds">
+		<button onclick="setRounds()">Set number of rounds.</button></p>
 
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
 	<!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -49,7 +53,16 @@
 			"ALARM_TIME": (alarmTime)
 		})
 	}
+
+	function setRounds(){
+		var totalRounds = document.getElementById("rounds").value;
+		console.log("setting alarm");
+		alert("Total rounds changed.");
+		ref.update({
+			"rounds": (totalRounds)
+		})
 		
     </script>
+	}
 
 </body>
