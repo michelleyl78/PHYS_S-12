@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
   <link href="../style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/arduino-light.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.8.0/highlight.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/arduino.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
 </head>
 <div class="header">
   <a href="../index.html" class="header">PHYS S-12: Introduction to Digital Fabrication</a>
@@ -94,7 +99,7 @@
   <p> Initially, I didn't know if the Huzzah would have enough pins for my buzzer, LCD display, and arcade buttons, but luckily there were enough. I was worried I would have to connect another Huzzah and use serial communication between the boards to get more pins, but I didn't have to in the end. However, I had to spend a lot of time analyzing the pinout guide for the Huzzah since some of the pins were input-only or didn't have pull-up resistors, which I needed for my arcade buttons. Some of the GPIO pins are also not recommended for input or output. Nevertheless, eventually I finally picked the right pins and connected everything! It's a bit messy, but as long as it works, appearance doesn't matter since the circuit will be inside the alarm box anyways. I had to create myself a table to keep track of all the pins I was using, but here's a Tinkercad schematic of the circuit for easy viewing.</p>
   <!-- Tinkercad circuit -->
    <p> Once I finished building the circuit, I used Elmer's glue to stick the pieces together. Here's the finished product! </p>
-  <!--finished product image -->
+  <p><img src="final_product.jpg" style="width:90%" alt="Final Product"></p>
 <hr>
     <a id="programming"><h3> Programming</h3></a>
      <a id="alarm"><h4> Alarm (Firebase) </h4></a>
@@ -111,7 +116,7 @@
   rounds = roundsString.toInt(); //convert string into integer
 </code></pre>
 <p> I also wanted to display the set alarm time and number of rounds to the player on the website, which I was easily able to accomplish by using document.getElementById("alarmtimes").innerHTML = alarmTime and assigning an id called alarmtimes to the space where I wanted the updated alarm time to appear. Once this was done, I cleaned up my website and added some CSS design to make it have a better interface. Here is how it looks! </p>
-<!--alarm website -->
+<p><img src="alarm_website.PNG" style="width:90%" alt="Final Website"></p>
 
     <hr>
     <a id="time"><h4> Time (NTP Client) </h4></a>
@@ -269,7 +274,7 @@ void loop(){
 }
   </code></pre>
   <p> Here's the buttons in action! </p>
-  <!-- button video -->
+  <p><img src="button_press.gif" style="width:90%" alt="Button Presses"></p>
   <hr>
   <h4> July 31, 2020 </h4>
   <p> Today I wanted to try to program the Simon Says mechanism. I used <a href="https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v32/experiment-16-simon-says">this </a>sparkfun tutorial sample code to learn how to create the mechanism.</p>
