@@ -26,19 +26,19 @@
   <br>
   <h5 style="text-align: center;"> To set the alarm from a website via Firebase from anywhere with internet access, <a href="../firebaseintro.html">here's</a> the link. </h5>
   <hr>
-  <h3> Table of contents: </h3>
+  <h3> Table of Contents: </h3>
   <div id='index'>
   <h5><a href="#demo"> -Demo Video/Memory Alarm Website </a></h5>
-  <h5><a href="#info"> -Introduction </a></h5>
-  <h5> -Project Development </h5>
+  <h5><a href="#intro"> -Introduction </a></h5>
+  <h5><a href="#proposal"> -Project Development </a></h5>
   <div><h5><a href="#proposal"> -Initial Proposal </a></h5></div>
   <div><h5><a href="#3D"> -3D Modeling </a></h5></div>
   <div><h5><a href="#hardware"> -Hardware/Circuit </a></h5></div>
-  <div><h5> -Programming </h5></div>
-  <div><div><h5> -Alarm (Firebase)</h5></div></div>
-  <div><div><h5> -Time (NTP Client)</h5></div></div>
-  <div><div><h5> -Memory Game </h5></div></div>
-  <div><div><h5> -Combining Everything </h5></div></div>
+  <div><h5><a href="#programming"> -Programming </a></h5></div>
+  <div><div><h5> <a href="#alarm">-Alarm (Firebase)</a></h5></div></div>
+  <div><div><h5><a href="#time"> -Time (NTP Client)</a></h5></div></div>
+  <div><div><h5><a href="#memory"> -Memory Game </a></h5></div></div>
+  <div><div><h5><a href="#combine"> -Combining Everything </a></h5></div></div>
   <h5><a href="#future"> -Future Goals </a> </h5>
   <h5><a href="#download"> -Downloads </a></h5>
 </div>
@@ -97,7 +97,7 @@
   <!--finished product image -->
 <hr>
     <a id="programming"><h3> Programming</h3></a>
-     <h4> Alarm (NTP Client) </h4>
+     <a id="alarm"><h4> Alarm (Firebase) </h4></a>
     <h5> July 21, 2020 </h5>
     <hr>
     <p>I needed a way to set alarms by making sure my Huzzah can receive instructions from an external website to know when to ring the alarm. During class, we learned about IoT, so I decided to use Firebase to control my Huzzah from a website coded in HTML/Javascript. I created a realtime database, and since Firebase sends data in a string format to the Huzzah, I made a variable called alarmString which stored the data received from Firebase so that I would be able to compare that variable with another variable that would represent the actual time. </p>
@@ -114,7 +114,7 @@
 <!--alarm website -->
 
     <hr>
-    <h4> Time (NTP Client) </h4>
+    <a id="time"><h4> Time (NTP Client) </h4></a>
     <h5> July 21, 2020 </h5>
     <hr>
 <p> Since my final project is an alarm clock, I need a way to use the Huzzah as a web client and get the time from an API.  </p>
@@ -162,7 +162,7 @@ while (WiFi.status() == WL_CONNECTED) {
   }
   </code></pre>
 <hr>
-<h4> Memory Game </h4>
+<a id="memory"><h4> Memory Game </h4></a>
   <h4> July 30, 2020 </h4>
   <hr>
   <p> I knew I needed to create functions which would light-up the buttons when they were pressed, so I initially created state machines for every single button color. </p>
@@ -277,7 +277,7 @@ void loop(){
   <p> This Simon Says code works by defining an array called gameBoard and using random() to generate a byte from 0 to 3 corresponding to certain colored buttons that are added to the game sequence. A function called playMoves() plays back the current game board and then another function called wait_for_button returns a byte called choice that is compared to the current move on the array. If the player presses the correct color, then they move onto the next round. A boolean called play_memory contains the functions related to game play and returns a boolean value once the player either wins or loses. Since the original code had a lot of extra features such as two other game modes, I modified the code to take up less memory. </p> 
   <p> I took out the extra two game modes and defined different pins corresponding to my output devices. Instead of defining the number of rounds, I made it into an integer that I intend to be able to control from Firebase. I also removed the time-out function of the game. In addition, since I need to use the buzzer to play the alarm sound, I removed the sounds associated with the Simon Says game. <a href="simon1.txt">Here </a>is the code of the Simon Says mechanism before I attempted to merge it with my alarm code. </p>
   <hr>
-  <h4> Combining Everything</h4>
+  <a id="combine"><h4> Combining Everything</h4></a>
   <h4> August 1-5, 2020 </h4>
   <hr>
   <p> Now that all of the separate components were ready, I needed to combine my alarm code with my Simon Says code. I knew that I would need to use millis to get the time from the NTP server without delay, and I also wanted to use millis with my alarm code and Simon Says code so that the time would keep updating even when playing the game. </p>
@@ -316,7 +316,12 @@ if (alarm_condition == 1) { //function for alarm buzzing
     <hr>
     <a id="download"><h3>Downloads</h3></a>
     <hr>  
-
+    <p><a download href='Alarm Clock Final.dxf'> DXF file </a></p>
+    <p><a download href='Alarm Clock v6.f3d'> 3D model file </a></p>
+    <p><a download href='final_code.txt'> Arduino sketch </a></p>
+    <p><a download href='../firebaseintro.html'> Alarm-setting Website HTML</a></p>
+    <p><a download href='../firebasestyle.css'> Alarm-setting Website CSS </a></p>
+    <p> Tinkercad Schematic </p>
 
 
 
