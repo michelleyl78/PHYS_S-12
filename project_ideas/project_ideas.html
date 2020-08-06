@@ -20,14 +20,16 @@
   
 	<h1> Final Project Documentation </h1>
   <hr>
-  <iframe width="560" height="315" src="https://www.youtube.com/embed/teWUjaIdMx8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  <p> To set the alarm from a website via Firebase from anywhere with internet access, <a href="../firebaseintro.html">here's</a> the link. </p>
+  <a id="demo"><h3>Demo Video</h3></a>
+  <div class ="video">
+  <iframe width="739.2" height="415.8" src="https://www.youtube.com/embed/teWUjaIdMx8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </div>
+  <br>
+  <h5 style="text-align: center;"> To set the alarm from a website via Firebase from anywhere with internet access, <a href="../firebaseintro.html">here's</a> the link. </h5>
   <hr>
   <h3> Table of contents: </h3>
   <div id='index'>
-  <h5> -Demo Video </h5>
-  <h5> -Memory Alarm Website </h5>
-  <h5> -Introduction </h5>
+  <h5><a href="#demo"> -Demo Video/Memory Alarm Website </a></h5>
+  <h5><a href="#info"> -Introduction </a></h5>
   <h5> -Project Development </h5>
   <div><h5><a href="#proposal"> -Initial Proposal </a></h5></div>
   <div><h5><a href="#3D"> -3D Modeling </a></h5></div>
@@ -37,14 +39,21 @@
   <div><div><h5> -Time (NTP Client)</h5></div></div>
   <div><div><h5> -Memory Game </h5></div></div>
   <div><div><h5> -Combining Everything </h5></div></div>
-  <h5> -Future Goals </h5>
-  <h5> -Downloads </h5>
+  <h5><a href="#future"> -Future Goals </a> </h5>
+  <h5><a href="#download"> -Downloads </a></h5>
 </div>
-  <hr>
+<hr>
+    <a id="intro"><h3>Introduction</h3></a>
+    <hr>
+    <p> My goal was to create an alarm without a snooze button that would require the user to complete a memory game to turn off the alarm. This would force them to wake up their brain, which would make it more likely for them to actually get out of bed. </p>
+    <p> The alarm utilizes an LCD display to show the time and has four different colored LED arcade buttons on the top that are used during the memory game. Internally, the alarm has a buzzer that beeps for the alarm and also makes sounds for the memory game. There are speaker grills cut into the left and right side to allow for louder sound from the buzzer. </p>
+    <p> The time on the LCD display is fetched from an NTP Client that updates without delay every second as long as the alarm is not ringing. The alarm time is set via a Firebase website, which can also edit the amount of memory game rounds that the user is required to complete to turn off the alarm. The memory game initiates when the previously set alarm time is equal to the time via the NTP Client. When playing the memory game, the alarm is momentarily stopped, but if the player presses the wrong button in the sequence or waits more than three seconds between button presses, the alarm will resume beeping, and the player will have to restart the memory game. If the player successfully makes it through the set number of rounds, the alarm is turned off and a short victory jingle is played. </p>
+    <hr>
 		<a id="proposal"><h3> Initial Final Project Proposal: Simon Says Alarm Clock </h3></a>
     <h5> June 23, 2020 </h5>
     <hr>
-			<p> Proposal: I have a bit of trouble waking up in the mornings (to the point where I usually have to set several alarms five minutes apart to even wake up). I was thinking of designing an alarm clock that would work like those old Hasbro Simon Says games, forcing me to use my memory to turn off the alarm sound. It could use 4 different color LED lights that could light up in a specific pattern with specific sounds, and I would have to repeat the pattern to turn off the alarm. 
+			<p> Proposal: I have a bit of trouble waking up in the mornings (to the point where I usually have to set several alarms five minutes apart to even wake up). I was thinking of designing an alarm clock that would work like those old Hasbro Simon Says games, forcing me to use my memory to turn off the alarm sound. It could use 4 different color LED lights that could light up in a specific pattern with specific sounds, and I would have to repeat the pattern to turn off the alarm. </p>
+      <p> I have absolutely no programming or fabrication experience, so I hope that this project is feasible. </p>
          <p><img src="simon_says.jpg" style="width:30%" alt="Simon Says"> </p>
     <hr>
     <a id="3D"><h3> 3D Modeling </h3></a>
@@ -82,7 +91,7 @@
   <p><img src="clock.jpg" style="width:90%" alt="Working Clock"></p>
   <p> I had some trouble mounting the LCD display since I didn't account for the backlight when designing my 3D parts, so I didn't cut out a space for it. The backlight prevents the display from sitting flush against the wood, but I was still able to screw in the other side, and the LCD display luckily stays in place. </p>
   <p> The buttons were very easy to mount since they came with adapter rings that pretty much acted like nuts that keep the buttons in place. After mounting the buttons and LCD display, I used tape to hold the box together while still working on the circuit. </p>
-  <p> Initially, I didn't know if the Huzzah would have enough pins for my buzzer, LCD display, and arcade buttons, but luckily there were enough. However, I had to spend a lot of time analyzing the pinout guide for the Huzzah since some of the pins were input-only or didn't have pull-up resistors, which I needed for my arcade buttons. Some of the GPIO pins are also not recommended for input or output. Nevertheless, eventually I finally picked the right pins and connected everything! It's a bit messy, but as long as it works, appearance doesn't matter since the circuit will be inside the alarm box anyways. I had to create myself a table to keep track of all the pins I was using, but here's a Tinkercad schematic of the circuit for easy viewing.</p>
+  <p> Initially, I didn't know if the Huzzah would have enough pins for my buzzer, LCD display, and arcade buttons, but luckily there were enough. I was worried I would have to connect another Huzzah and use serial communication between the boards to get more pins, but I didn't have to in the end. However, I had to spend a lot of time analyzing the pinout guide for the Huzzah since some of the pins were input-only or didn't have pull-up resistors, which I needed for my arcade buttons. Some of the GPIO pins are also not recommended for input or output. Nevertheless, eventually I finally picked the right pins and connected everything! It's a bit messy, but as long as it works, appearance doesn't matter since the circuit will be inside the alarm box anyways. I had to create myself a table to keep track of all the pins I was using, but here's a Tinkercad schematic of the circuit for easy viewing.</p>
   <!-- Tinkercad circuit -->
    <p> Once I finished building the circuit, I used Elmer's glue to stick the pieces together. Here's the finished product! </p>
   <!--finished product image -->
@@ -263,45 +272,50 @@ void loop(){
   <!-- button video -->
   <hr>
   <h4> July 31, 2020 </h4>
-  <p> Today I wanted to try to code the Simon Says mechanism. I used <a href="https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v32/experiment-16-simon-says">this </a>sparkfun tutorial sample code to learn how to create the mechanism.</p>
+  <p> Today I wanted to try to program the Simon Says mechanism. I used <a href="https://learn.sparkfun.com/tutorials/sik-experiment-guide-for-arduino---v32/experiment-16-simon-says">this </a>sparkfun tutorial sample code to learn how to create the mechanism.</p>
   <p> It seems as if my code from yesterday with the light-up buttons is not needed, but I am still glad that I learned more about OOP through that code. </p>
   <p> This Simon Says code works by defining an array called gameBoard and using random() to generate a byte from 0 to 3 corresponding to certain colored buttons that are added to the game sequence. A function called playMoves() plays back the current game board and then another function called wait_for_button returns a byte called choice that is compared to the current move on the array. If the player presses the correct color, then they move onto the next round. A boolean called play_memory contains the functions related to game play and returns a boolean value once the player either wins or loses. Since the original code had a lot of extra features such as two other game modes, I modified the code to take up less memory. </p> 
   <p> I took out the extra two game modes and defined different pins corresponding to my output devices. Instead of defining the number of rounds, I made it into an integer that I intend to be able to control from Firebase. I also removed the time-out function of the game. In addition, since I need to use the buzzer to play the alarm sound, I removed the sounds associated with the Simon Says game. <a href="simon1.txt">Here </a>is the code of the Simon Says mechanism before I attempted to merge it with my alarm code. </p>
   <hr>
   <h4> Combining Everything</h4>
-  <h4> August 1-3, 2020 </h4>
+  <h4> August 1-5, 2020 </h4>
   <hr>
-  <p> Now that all of the separate components were ready, I needed to combine my alarm code with my Simon Says code. I knew that I would need to use millis to get the time from the NTP server without delay, and I also wanted to use millis with my alarm code and Simon Says code  </p>
-  <hr>
-  <h4> August 3, 2020 </h4>
-  <p> Finally got the buzzer working without using delay! Originally, I used the myTone function written by Nathan, then he gave me code that allowed buzzing without delay, but then Rob helped me figure out how to sound the buzzer with PWM, and I was able to use PWM and modify the blink without delay code to get my buzzer working without delay! I'm glad that both my time display and buzzer are now working simultaneously, although the Simon Says mechanism will be the hardest to get working without delay. Here's the code for the buzzer without delay! </p>
+  <p> Now that all of the separate components were ready, I needed to combine my alarm code with my Simon Says code. I knew that I would need to use millis to get the time from the NTP server without delay, and I also wanted to use millis with my alarm code and Simon Says code so that the time would keep updating even when playing the game. </p>
+  <p> Little did I know just how difficult it would be to convert everything to millis. Since the Huzzah can't use the tone function, I had initially made it buzz using Nathan's myTone function, but it used delays. However, he gave me a modified version of the myTone function that used classes and allowed buzzing without delay. Except this code was very difficult to integrate with my Simon Says mechanic. Luckily, Rob helped me figure out how to sound the buzzer with PWM, and I was able to use PWM and modify the blink without delay code to get my buzzer working without delay! I'm glad that both my time display and buzzer are now working simultaneously, although the Simon Says mechanism will be the hardest to get working without delay. Here's the code for the buzzer without delay! </p>
   <pre><code class="language-arduino">
 if (alarm_condition == 1) { //function for alarm buzzing
     if (currentMillis - alarmMillis >= beep) {
       alarmMillis = currentMillis;
       if (buzzerState == LOW) {
-        ledcWriteTone(buzzerChannel, 400);
+        ledcWriteTone(buzzerChannel, 1500);
         ledcWrite (buzzerChannel, 125);
         buzzerState = HIGH;
       } else {
-        ledcWriteTone(buzzerChannel, 400);
+        ledcWriteTone(buzzerChannel, 1500);
         ledcWrite(buzzerChannel, 0);
         buzzerState = LOW;
       }
     }
   }
   </code></pre>
-  <hr>
-  <h4> August, 3 2020 </h4>
-  <hr>
-  <p> I created some code that will turn off the alarm with a press of a button without the Simon game in case I cannot figure out the Simon game in time. </p>
-  <hr>
-  <h4> August, 4 2020 </h4>
-  <hr>
-  <p> I succeeded! Instead of trying to convert all of the Simon Says game from using delays into using no delays (which was really difficult with all the for and while loops), I decided to momentarily shut off the time display feature while the alarm is going off so that I have no need for using millis in the Simon game. This switches the Arduino's task over to the Simon game completely until it is finished! This works! Yes!</p>
-  <p> Instead of the default winner sound, I replaced the winner sound with the victory fanfare from FFVII since I'm a nerd. </p>
-  <p> I can't reset the alarm yet, but I think I just need to comb through my code a bit to find out how to do that! Next, some changes to firebase, and I think I'm all good! </p>
-   
+  <p> Converting the Simon Says game to use no delays was a nightmare. It uses both while loops and for loops for its main gameplay mechanics, which are both blocking. I spent so much time trying to convert all of the various delays in the game and almost ran out of time to finish my programming before final presentations. I had to create some code that would turn off the alarm with a press of a button without the Simon game in case I couldn't figure out the Simon game in time. </p>
+  <p> However, I had a breakthrough two days before final presentations. I realized that there was really no reason for me to have the time display, beeping, and Simon game running simultaneously as I originally thought. The time display only needed to run until the alarmString was equal to actualTime, which would activate the buzzer's beeping. By replacing the time on the LCD display with a basic statement of "Memory Game!", I didn't need to deal with the NTP Client running simultaneously with the buzzer or Simon game. As long as the NTP Client updated right after the player turned off the alarm, it would work! Even the buzzer didn't need to run at the same time as the Simon Game and could restart if the player failed or timed out of the game. Thus, the Simon Game could be blocking with no problem! Once I realized this, my approach to the programming changed drastically. </p>
+  <p> It was easy to add variables that make sure the time display is not updated when the alarm starts ringing. While the alarm was ringing, the LED arcade buttons would flash until the player pressed a button, which would initiate the Simon game and momentarily turn off the time display and alarm beeping functions. I pretty much used the original Simon Says code that I wrote, but I put back the sounds of the buttons and changed the winner sound to use PWM. I replaced the winner sound with the victory fanfare from FFVII since I'm a nerd.</
+  <p>I also handled the simon boolean a bit differently. If the player lost, two variables would be set to true, which would stop the Simon function and start the alarm beeping function. I also added more actions if the player completed the Simon game, which would ensure that the Simon and alarm beeping functions would be false and shut down, leaving only the time display function to update without delay until the alarmString=actualTime condition was met again. </p>
+  <p> The only problem left was that the buzzer's beeping wasn't consistent due to a delay somewhere in the code. However, with Nathan's help, I realized that this was due to the time client and Firebase updating every second. To remedy this, I just had to make sure that the function which fetched these was not active during the period in which the alarm was beeping. This was super easy to fix by just adding an extra condition to the function which fetched these strings. </p>
+  <p> At last, <a href="final_code.txt">here </a>is the final Arduino sketch for my Memory Alarm! </p>
+<hr>
+    <a id="future"><h3>Future Goals</h3></a>
+    <hr>  
+    <p> I am extremely pleased with the final product. It works almost exactly as I had wanted, and I'm amazed that I was able to create such a product having started off with literally zero experience in 3D design, Arduino, Javascript, etc. </p>
+    <p> If I could redesign the laser-cut parts, I would only make sure I cut out an indentation in the front piece for the backlight of the LCD display so it would mount better. However, the rest of my design is fine. </p>
+    <p> Since the Huzzah uses 3 volts instead of 5 volts like is suggested for the LCD display, the LCD display does not have a very good contrast between the background and characters, even if I set the potentiometer to its maximum value. I experimented a little with trying to remove the potentiometer and manually set both the backlight and contrast, but this requires two analog out pins, and I didn't have enough of these pins on the Huzzah to plug in two more wires. Perhaps if I reworked the circuit, I might be able to do so. </p>
+    <p> Programming-wise, the only problem that the program seems to have is that if the player completes the Simon game in less than a minute before the time has changed to make alarmString != actualTime, the alarm will not shut off and it will continue beeping until the minute changes and the user completes the Simon game again. If I had more time, I would refine this. </p>
+    <p> Another thing I would add if I could would be different victory songs after completion of the Simon game, although it would be more difficult than using the tone function since I would have to use PWM and account for delays for note durations as well as short delays in between notes. Ideally if I could add songs, the user's preferred victory song could be assigned on the Firebase website. </p>
+    <p> Speaking of the Firebase website, I also wish that I could make the inputs more user-friendly and less prone to error if the time is inputted the wrong way, but this will most likely require javascript, and I am inexperienced with that. Perhaps in the future, I can improve the alarm setting interface once I learn more javascript.</p>
+    <hr>
+    <a id="download"><h3>Downloads</h3></a>
+    <hr>  
 
 
 
