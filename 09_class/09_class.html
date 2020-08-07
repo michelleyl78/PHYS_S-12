@@ -52,13 +52,21 @@ if (alarmString == actualTime) {                    // compare the alarm string 
 </code></pre>
 <p> This finally worked! However, I soon realized that I had no way to turn off the alarm. Thus, I added a button into my circuit on pin 21 with a pull-down resistor. I modified the myTone function with an if statement which would keep the buzzer buzzing unless the button was pressed. I haven't yet gotten the button to work how I want it to. Ideally, I would want the button to turn off the buzzer after being pushed, but my code only allows for the buzzer to stop if the button is continuously pushed down, and the buzzer automatically stops once the time changes by a minute. When I actually make my final project, I will try to have this issue solved. Nevertheless, here's the code: </p>
 <pre><code class="language-arduino">
-if (alarmString == actualTime) {                    // compare the alarm string from Firebase to the string representing the actual time from the NTP server
-  Serial.println("Alarm Turned ON");
-  myTone(buzzerPin, 262, 500); // sound the buzzer alarm
-  delay(1000);
-} else {             // if the strings don't match, then there will be no alarm
-  Serial.println("Alarm Turned OFF");
-}  
+void myTone(int pin, int frequency, int duration) {
+  int buttonState = digitalRead (button);
+  int startTime = millis();
+  int period = 1000000 / frequency;
+  if (buttonState == LOW) { //button is not pressed, so buzzer sounds
+    while ((millis() - startTime) < duration) {
+      digitalWrite(pin, HIGH);
+      delayMicroseconds(period / 2);
+      digitalWrite(pin, LOW);
+      delayMicroseconds(period / 2);
+    }
+  } else {
+    digitalWrite(pin, LOW); //button is pressed, so buzzer stops
+  }
+}
 </code></pre>
 <p> Although I could manually change the ALARM_TIME value in Firebase to set the alarm, I wanted to create a website where I would be able to do so. I used an input tag in HTML whose type was text so that I would be able to type something into the text box and call on it to get a string value. I haven't written code in JavaScript before, so I had to learn a few things to make a function that would take the value of that input and make it into a JavaScript variable which would update the ALARM_TIME value in Firebase. I also added an alert so that whoever sets the alarm will know that they successfully set the alarm. Here's what the website looks like: </p>
 <p><img src="website.PNG" style="width:90%" alt="Website"></p>
